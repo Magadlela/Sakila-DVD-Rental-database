@@ -9,3 +9,4 @@ and how the stores compare in their performance. To assist you in the queries ah
 [DVD Rental ERD] (https://video.udacity-data.com/topher/2018/September/5ba96b12_dvd-rental-erd-2/dvd-rental-erd-2.pdf)
 
 ![DVD Rental Image](https://video.udacity-data.com/topher/2018/September/5ba96b12_dvd-rental-erd-2/dvd-rental-erd-2.pdf " ERD diagram")
+[![Alt text]([https://assets.digitalocean.com/articles/alligator/boo.svg](https://video.udacity-data.com/topher/2018/September/5ba96b12_dvd-rental-erd-2/dvd-rental-erd-2.pdf))
