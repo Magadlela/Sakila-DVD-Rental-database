@@ -6,5 +6,11 @@ such as what the patterns in movie watching are across different customer groups
 and how the stores compare in their performance. To assist you in the queries ahead, the schema for the DVD Rental database is provided below.
 
 ## ERD diagram 
-[DVD Rental ERD](https://video.udacity-data.com/topher/2018/September/5ba96b12_dvd-rental-erd-2/dvd-rental-erd-2.pdf)
+
 ![DVD rental image]( dvd-rental-erd-2.png)
+
+
+## Project Rubric
+[CRITERIA](https://review.udacity.com/#!/rubrics/2095/view)
+
+
