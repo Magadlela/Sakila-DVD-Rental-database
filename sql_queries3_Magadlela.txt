@@ -1,0 +1,89 @@
+--query 1
+SELECT 
+  (first_name || ' ' || last_name) full_name, 
+  SUM(amount) AS standard_amount 
+FROM 
+  customer 
+  JOIN payment ON payment.customer_id = customer.customer_id 
+WHERE 
+  active = 1 
+GROUP BY 
+  customer.customer_id, 
+  first_name, 
+  last_name 
+ORDER BY 
+  standard_amount DESC 
+LIMIT 
+  15;
+
+--query 2
+WITH amounts AS(
+  SELECT 
+    customer_id, 
+    amount, 
+    COUNT(amount) OVER (PARTITION BY amount) AS count_amount 
+  FROM 
+    payment 
+  ORDER BY 
+    count_amount) 
+
+SELECT 
+  (first_name || ' ' || last_name) full_names, 
+  amount, 
+  count_amount 
+FROM 
+  amounts 
+  JOIN customer ON amounts.customer_id = customer.customer_id 
+LIMIT 10;
+
+
+--query 3
+WITH sales AS (
+  SELECT 
+    store.store_id, 
+    staff.last_name, 
+    staff.first_name, 
+    amount 
+  FROM 
+    store 
+    JOIN staff ON staff.store_id = store.store_id 
+    JOIN payment ON payment.staff_id = staff.staff_id 
+  GROUP BY 
+    store.store_id, 
+    staff.last_name, 
+    staff.first_name, 
+    amount) 
+
+SELECT 
+  (
+    store_id || ' ' || last_name || ' ' || first_name
+  ) store_details, 
+  AVG(amount) AS avg_amount, 
+  SUM(amount) AS total_amount 
+FROM 
+  sales 
+GROUP BY 1;
+
+
+--query 4
+SELECT 
+  (last_name || ' ' || first_name) full_name, 
+  payment_date, 
+  SUM(amount) total_amount 
+FROM 
+  customer 
+  JOIN payment ON customer.customer_id = payment.customer_id 
+WHERE 
+  DATE_TRUNC('day', payment_date) = (
+    SELECT 
+      DATE_TRUNC(
+        'day', 
+        MAX(payment_date)
+      ) AS last_day 
+    FROM 
+      payment
+  ) 
+  AND active = 0 
+GROUP BY 1, 2 
+ORDER BY 
+  payment_date;
