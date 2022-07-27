@@ -10,8 +10,9 @@ and how the stores compare in their performance. To assist you in the queries ah
 
 ![DVD rental image]( dvd-rental-erd-2.png)
 
+## Tools and technology
+- PostgressSQL
+- Excel
 
 ## Project Rubric
 [CRITERIA](https://review.udacity.com/#!/rubrics/2095/view)
-
-
