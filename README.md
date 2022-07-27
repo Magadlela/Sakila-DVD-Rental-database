@@ -1,5 +1,6 @@
 # Sakila-DVD-Rental-database
-Introduction In this project, you will query the _Sakila DVD Rental_ database. 
+## Introduction 
+In this project,will query the _Sakila DVD Rental_ database. 
 The Sakila Database holds information about a company that rents movie DVDs.
 For this project, you will be querying the database to gain an understanding of the customer base, 
 such as what the patterns in movie watching are across different customer groups, how they compare on payment earnings,
